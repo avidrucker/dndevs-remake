@@ -1,6 +1,6 @@
 # dndevs-remake
 
-`dndevs-remake` rebuilds the legacy **Dungeons & Developers** talent tree as a modern React application using plain JavaScript, Vite, and ~~Tachyons CSS~~, while preserving the original visual style, rules, and shareable-build behavior as closely as possible.
+`dndevs-remake` rebuilds the legacy **Dungeons & Developers** talent tree as a modern React application using plain JavaScript, Vite, and Tachyons CSS, while preserving the original visual style, rules, and shareable-build behavior as closely as possible.
 
 This project also serves as a practical demonstration of agentic AI software development: the app is being rebuilt incrementally by an autonomous coding agent (ChatGPT Codex) with minimal human assistance, using the legacy site as the behavioral and visual specification.
 
@@ -11,13 +11,13 @@ This project also serves as a practical demonstration of agentic AI software dev
 - Use modern React with functional components and hooks
 - Keep the codebase plain JavaScript only
 - Build and deploy cleanly to GitHub Pages under `/dndevs-remake/`
-- Add share-link format as query params hash
+- Preserve the legacy share-link hash format
 
 ## Tech stack
 
 - React
 - Vite
-- ~~Tachyons CSS~~
+- Tachyons CSS
 - Plain JavaScript
 - localStorage for persistence
 
@@ -38,7 +38,7 @@ The rebuild is based on the original specification:
 
 Completed:
 
-- Project bootstrap with Vite, React, ~~Tachyons~~, and legacy CSS/assets
+- Project bootstrap with Vite, React, Tachyons, and legacy CSS/assets
 - Skills data port
 - Domain logic for:
   - dependency rules
@@ -53,9 +53,8 @@ Completed:
 
 Still remaining:
 
-- GitHub Actions deployment workflow
-- Final README deployment details polish
 - Final GitHub Pages verification with deployed hash links
+- Optional visual-polish pass against the legacy site
 
 ## Development
 
@@ -116,7 +115,24 @@ Target deployment URL format:
 https://<username>.github.io/dndevs-remake/
 ```
 
-A GitHub Actions deployment workflow still needs to be added.
+This repo includes a GitHub Actions workflow at `.github/workflows/deploy.yml` that:
+
+- installs dependencies with `npm ci`
+- runs the test suite
+- builds the Vite app
+- deploys `dist/` to GitHub Pages
+
+To enable deployment:
+
+1. Push the repo to GitHub.
+2. In the GitHub repository settings, set **Pages** to use **GitHub Actions** as the source.
+3. Push to `main` or run the workflow manually from the Actions tab.
+
+Once enabled, GitHub Pages should publish the app at:
+
+```text
+https://<username>.github.io/dndevs-remake/
+```
 
 ## Legacy reference
 
