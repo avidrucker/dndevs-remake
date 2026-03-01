@@ -227,10 +227,7 @@ function App() {
           />
         </header>
 
-        <Intro
-          isOpen={state.isOpen}
-          onOpen={() => dispatch({ type: "open" })}
-        />
+        <Intro onOpen={() => dispatch({ type: "open" })} />
         <TalentTree
           skills={treeSkills}
           totalPoints={totalPoints}

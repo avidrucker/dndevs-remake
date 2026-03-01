@@ -65,11 +65,24 @@ describe("App", () => {
 
     fireEvent.click(screen.getByRole("button", { name: /Open the talent tree/i }));
     expect(document.querySelector(".page")).toHaveClass("open");
+    expect(document.querySelector(".intro")).not.toHaveClass("hide");
 
     fireEvent.click(screen.getByAltText("Dungeons and Developers"));
 
     expect(document.querySelector(".page")).not.toHaveClass("open");
     expect(document.querySelector(".intro")).not.toHaveClass("hide");
+  });
+
+  it("keeps the intro mounted during open-state transitions so legacy CSS can animate it", () => {
+    render(<App />);
+
+    const intro = document.querySelector(".intro");
+    expect(intro).not.toHaveClass("hide");
+
+    fireEvent.click(screen.getByRole("button", { name: /Open the talent tree/i }));
+
+    expect(document.querySelector(".page")).toHaveClass("open");
+    expect(intro).not.toHaveClass("hide");
   });
 
   it("adds points, unlocks dependencies, and updates avatar stats", () => {

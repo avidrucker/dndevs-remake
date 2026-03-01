@@ -1,6 +1,6 @@
-function Intro({ isOpen, onOpen }) {
+function Intro({ onOpen }) {
   return (
-    <div className={`intro${isOpen ? " hide" : ""}`}>
+    <div className="intro">
       <img
         src="/dndevs-remake/img/brought-to-you-by-352.png"
         className="brought-to-you"
