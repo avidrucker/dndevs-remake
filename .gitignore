@@ -3,3 +3,4 @@ dist/
 coverage/
 legacy/
 .DS_Store
+todos.md
