@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useReducer, useRef } from "react";
 import Intro from "./components/Intro";
 import TalentTree from "./components/TalentTree";
 import AvatarPanel from "./components/AvatarPanel";
@@ -12,11 +12,17 @@ import {
   nextRankDescription,
 } from "./domain/rules";
 import {
+  applyDecodedBuild,
+  decodeHash,
+  encodeHash,
+} from "./domain/hash";
+import {
   computeLevel,
   computeStats,
   computeTalentSummary,
   computeTotalPoints,
 } from "./domain/stats";
+import { loadState, saveState } from "./domain/storage";
 
 const creatorLinks = {
   threeFiveTwo: "https://www.threefivetwo.com/",
@@ -42,8 +48,55 @@ const initialState = {
   pointsBySkillId: {},
 };
 
+const HASH_DEBOUNCE_MS = 50;
+
+function getHydratedStateFromHash(hash) {
+  const decoded = decodeHash(hash);
+  const applied = applyDecodedBuild(decoded, skills);
+
+  return {
+    ...initialState,
+    ...applied,
+    isOpen: true,
+    portrait: applied.portrait ?? initialState.portrait,
+    avatarName: applied.avatarName || initialState.avatarName,
+  };
+}
+
+function getHydratedState() {
+  if (typeof window === "undefined") {
+    return { state: initialState, source: "default" };
+  }
+
+  const currentHash = window.location.hash;
+  if (currentHash) {
+    return {
+      state: getHydratedStateFromHash(currentHash),
+      source: "hash",
+    };
+  }
+
+  const storedState = loadState();
+  if (storedState) {
+    return {
+      state: {
+        ...initialState,
+        ...storedState,
+        portrait: storedState.portrait ?? initialState.portrait,
+        avatarName: storedState.avatarName || initialState.avatarName,
+        pointsBySkillId: storedState.pointsBySkillId ?? {},
+      },
+      source: "storage",
+    };
+  }
+
+  return { state: initialState, source: "default" };
+}
+
 function reducer(state, action) {
   switch (action.type) {
+    case "hydrate":
+      return action.state;
     case "toggleOpen":
       return { ...state, isOpen: !state.isOpen };
     case "open":
@@ -101,7 +154,14 @@ function reducer(state, action) {
 }
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const initialSourceRef = useRef("default");
+  const skippedInitialSaveRef = useRef(false);
+  const skippedInitialHashRef = useRef(false);
+  const [state, dispatch] = useReducer(reducer, undefined, () => {
+    const hydrated = getHydratedState();
+    initialSourceRef.current = hydrated.source;
+    return hydrated.state;
+  });
 
   const totalPoints = computeTotalPoints(state.pointsBySkillId);
   const treeSkills = skills.map((skill) => {
@@ -121,6 +181,39 @@ function App() {
       talentSummary: (skill.talents ?? []).join(", "),
     };
   });
+
+  useEffect(() => {
+    if (!skippedInitialSaveRef.current) {
+      skippedInitialSaveRef.current = true;
+      if (initialSourceRef.current === "default") {
+        return;
+      }
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      saveState(state);
+    }, HASH_DEBOUNCE_MS);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [state]);
+
+  useEffect(() => {
+    if (!skippedInitialHashRef.current) {
+      skippedInitialHashRef.current = true;
+      if (initialSourceRef.current === "default") {
+        return;
+      }
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      const nextHash = encodeHash(state);
+      if (window.location.hash !== `#${nextHash}`) {
+        window.location.hash = nextHash;
+      }
+    }, HASH_DEBOUNCE_MS);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [state]);
 
   return (
     <div className="ltIE9-hide">

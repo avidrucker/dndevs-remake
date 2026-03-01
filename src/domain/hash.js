@@ -56,7 +56,7 @@ export function decodeHash(hash) {
   return {
     allocations,
     portrait: portraitSegment ? Number(portraitSegment) : undefined,
-    avatarName,
+    avatarName: avatarName ? decodeURIComponent(avatarName) : "",
   };
 }
 

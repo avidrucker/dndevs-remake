@@ -1,8 +1,18 @@
-import { fireEvent, render, screen, within } from "@testing-library/react";
-import { describe, expect, it } from "vitest";
+import { act, fireEvent, render, screen, within } from "@testing-library/react";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import App from "./App";
 
 describe("App", () => {
+  beforeEach(() => {
+    window.localStorage.clear();
+    window.location.hash = "";
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+    window.localStorage.clear();
+    window.location.hash = "";
+  });
   it("renders the legacy intro copy and CTA", () => {
     render(<App />);
 
@@ -106,5 +116,85 @@ describe("App", () => {
 
     expect(screen.getByText("HTML").closest(".skill")).not.toHaveClass("has-points");
     expect(screen.getByText("CSS").closest(".skill")).not.toHaveClass("has-points");
+  });
+
+  it("hydrates from the URL hash before localStorage and opens the tree", () => {
+    window.location.hash = "#_a2b_5_Avi";
+    window.localStorage.setItem(
+      "dndevs_state_v1",
+      JSON.stringify({
+        isOpen: false,
+        avatarName: "Stored Name",
+        portrait: 9,
+        pointsBySkillId: { 24: 1 },
+      })
+    );
+
+    render(<App />);
+
+    expect(document.querySelector(".page")).toHaveClass("open");
+    expect(document.querySelector(".avatar .level")).toHaveTextContent(
+      "Level 4 Web Developer"
+    );
+    expect(screen.getByDisplayValue("Avi")).toBeInTheDocument();
+    expect(document.querySelector(".avatar .portrait img")).toHaveAttribute(
+      "src",
+      "/dndevs-remake/img/portrait-5.jpg"
+    );
+    expect(screen.getByText("HTML").closest(".skill")).toHaveClass("has-max-points");
+    expect(screen.getByText("CSS").closest(".skill")).toHaveClass("has-points");
+    expect(screen.getByText("Server Administration").closest(".skill")).not.toHaveClass(
+      "has-points"
+    );
+  });
+
+  it("falls back to localStorage when the URL hash is empty", () => {
+    window.localStorage.setItem(
+      "dndevs_state_v1",
+      JSON.stringify({
+        isOpen: true,
+        avatarName: "Stored Name",
+        portrait: 9,
+        pointsBySkillId: { 24: 1 },
+      })
+    );
+
+    render(<App />);
+
+    expect(document.querySelector(".page")).toHaveClass("open");
+    expect(screen.getByDisplayValue("Stored Name")).toBeInTheDocument();
+    expect(document.querySelector(".avatar .portrait img")).toHaveAttribute(
+      "src",
+      "/dndevs-remake/img/portrait-9.jpg"
+    );
+    expect(screen.getByText("Server Administration").closest(".skill")).toHaveClass(
+      "has-points"
+    );
+  });
+
+  it("debounces localStorage saves and hash updates from reducer state changes", () => {
+    vi.useFakeTimers();
+
+    render(<App />);
+
+    fireEvent.click(screen.getByRole("button", { name: /Open the talent tree/i }));
+    fireEvent.click(screen.getByLabelText("Add or remove points for HTML"));
+
+    expect(window.localStorage.getItem("dndevs_state_v1")).toBeNull();
+    expect(window.location.hash).toBe("");
+
+    act(() => {
+      vi.runAllTimers();
+    });
+
+    expect(window.localStorage.getItem("dndevs_state_v1")).toBe(
+      JSON.stringify({
+        isOpen: true,
+        avatarName: "Your Name",
+        portrait: 1,
+        pointsBySkillId: { 1: 1 },
+      })
+    );
+    expect(decodeURIComponent(window.location.hash)).toBe("#_a_1_Your Name");
   });
 });
