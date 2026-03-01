@@ -1,26 +1,24 @@
-function SkillNode({
-  skillId,
-  title,
-  description,
-  points,
-  maxPoints,
-  stats,
-  talents,
-  links,
-}) {
-  const talentSummary = talents.join(", ");
+function SkillNode({ skill, onAddPoint, onRemovePoint }) {
+  const classes = [
+    "skill",
+    skill.canAddPoints ? "can-add-points" : "",
+    skill.hasPoints ? "has-points" : "",
+    skill.hasMaxPoints ? "has-max-points" : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
-    <div className="skill can-add-points" data-skill-id={skillId}>
+    <div className={classes} data-skill-id={skill.id}>
       <div className="icon-container">
         <div className="icon"></div>
       </div>
       <div className="frame">
         <div className="tool-tip">
-          <h3 className="skill-name">{title}</h3>
-          <div className="skill-description">{description}</div>
+          <h3 className="skill-name">{skill.title}</h3>
+          <div className="skill-description">{skill.description}</div>
           <ul className="skill-links">
-            {links.map((link) => (
+            {skill.links.map((link) => (
               <li key={link.url}>
                 <a href={link.url} target="_blank" rel="noreferrer">
                   {link.label}
@@ -28,37 +26,49 @@ function SkillNode({
               </li>
             ))}
           </ul>
-          <hr />
-          <div className="current-rank-description">
-            Current rank: Placeholder rank text
-          </div>
-          <div className="next-rank-description">
-            Next rank: Detailed rank text arrives in step 2
-          </div>
+          {(skill.currentRankDescription || skill.nextRankDescription) ? <hr /> : null}
+          {skill.currentRankDescription ? (
+            <div className="current-rank-description">
+              Current rank: {skill.currentRankDescription}
+            </div>
+          ) : null}
+          {skill.nextRankDescription ? (
+            <div className="next-rank-description">
+              Next rank: {skill.nextRankDescription}
+            </div>
+          ) : null}
           <hr />
           <ul className="stats">
-            {stats.length === 0 ? <li>No stat bonuses yet.</li> : null}
-            {stats.map((stat) => (
+            {skill.stats.map((stat) => (
               <li key={stat.title}>
                 <span className="value">+{stat.value}</span>{" "}
                 <span className="title">{stat.title}</span>
               </li>
             ))}
           </ul>
-          {talentSummary ? (
-            <div className="talent-summary">Grants {talentSummary}</div>
+          {skill.talentSummary ? (
+            <div className="talent-summary">Grants {skill.talentSummary}</div>
           ) : null}
-          <div className="help-message positive">
-            Placeholder node ready for legacy rules.
+          <div
+            className={`help-message${skill.dependenciesFulfilled ? " positive" : ""}`}
+          >
+            {skill.helpMessage}
           </div>
         </div>
         <div className="skill-points">
-          <span className="points">{points}</span>/<span className="max-points">{maxPoints}</span>
+          <span className="points">{skill.points}</span>/
+          <span className="max-points">{skill.maxPoints}</span>
         </div>
         <div
           className="hit-area"
-          onClick={(event) => event.preventDefault()}
-          onContextMenu={(event) => event.preventDefault()}
+          role="button"
+          tabIndex={0}
+          aria-label={`Add or remove points for ${skill.title}`}
+          onClick={() => onAddPoint(skill.id)}
+          onContextMenu={(event) => {
+            event.preventDefault();
+            onRemovePoint(skill.id);
+          }}
         ></div>
       </div>
     </div>

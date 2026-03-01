@@ -1,28 +1,26 @@
 import SkillDependency from "./SkillDependency";
 import SkillNode from "./SkillNode";
 
-function TalentTree({ skills }) {
+function TalentTree({ skills, totalPoints, onAddPoint, onRemovePoint, children }) {
   return (
     <div className="talent-tree">
-      <h2 className="start-helper active">Start here!</h2>
+      {children}
+      <h2 className={`start-helper${totalPoints === 0 ? " active" : ""}`}>
+        Start here!
+      </h2>
 
       {skills
         .filter((skill) => skill.dependsOn && skill.dependsOn.length > 0)
         .map((skill) => (
-          <SkillDependency key={`dependency-${skill.id}`} skillId={skill.id} />
+          <SkillDependency key={`dependency-${skill.id}`} skill={skill} />
         ))}
 
       {skills.map((skill) => (
         <SkillNode
           key={skill.id}
-          skillId={skill.id}
-          title={skill.title}
-          description={skill.description}
-          points={skill.points}
-          maxPoints={skill.maxPoints}
-          stats={skill.stats}
-          talents={skill.talents}
-          links={skill.links}
+          skill={skill}
+          onAddPoint={onAddPoint}
+          onRemovePoint={onRemovePoint}
         />
       ))}
     </div>
