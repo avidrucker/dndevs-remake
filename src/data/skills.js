@@ -11,11 +11,11 @@ export const skills = [
     links: [
       {
         label: "HTML.net Tutorials",
-        url: "https://web.archive.org/web/20240204145251/http://www.html.net/tutorials/html/",
+        url: "http://www.html.net/tutorials/html/",
       },
       {
         label: "Sublime Text 3, a great code editor",
-        url: "https://web.archive.org/web/20240204145251/http://www.sublimetext.com/",
+        url: "http://www.sublimetext.com/",
       },
     ],
     maxPoints: 2,
@@ -32,11 +32,11 @@ export const skills = [
     links: [
       {
         label: "CSS Tutorials",
-        url: "https://web.archive.org/web/20240204145251/http://www.htmldog.com/guides/css/",
+        url: "http://www.htmldog.com/guides/css/",
       },
       {
         label: "Can I use... (browser support)",
-        url: "https://web.archive.org/web/20240204145251/http://caniuse.com/#cats=CSS",
+        url: "http://caniuse.com/#cats=CSS",
       },
     ],
     maxPoints: 2,
@@ -56,19 +56,19 @@ export const skills = [
     links: [
       {
         label: "Sass vs. LESS",
-        url: "https://web.archive.org/web/20240204145251/http://css-tricks.com/sass-vs-less/",
+        url: "http://css-tricks.com/sass-vs-less/",
       },
       {
         label: "LESS",
-        url: "https://web.archive.org/web/20240204145251/http://lesscss.org/",
+        url: "http://lesscss.org/",
       },
       {
         label: "Sass",
-        url: "https://web.archive.org/web/20240204145251/http://sass-lang.com/",
+        url: "http://sass-lang.com/",
       },
       {
         label: "Stylus",
-        url: "https://web.archive.org/web/20240204145251/http://learnboost.github.io/stylus/",
+        url: "http://learnboost.github.io/stylus/",
       },
     ],
     maxPoints: 2,
@@ -98,15 +98,15 @@ export const skills = [
     links: [
       {
         label: "Codecademy jQuery",
-        url: "https://web.archive.org/web/20240204145251/http://www.codecademy.com/tracks/jquery",
+        url: "http://www.codecademy.com/tracks/jquery",
       },
       {
         label: "jQuery Category: Manipulation",
-        url: "https://web.archive.org/web/20240204145251/http://api.jquery.com/category/manipulation/",
+        url: "http://api.jquery.com/category/manipulation/",
       },
       {
         label: "jQuery Category: Effects",
-        url: "https://web.archive.org/web/20240204145251/http://api.jquery.com/category/effects/",
+        url: "http://api.jquery.com/category/effects/",
       },
     ],
     maxPoints: 3,
@@ -130,15 +130,15 @@ export const skills = [
     links: [
       {
         label: "Search Engine Optimization (Google)",
-        url: "https://web.archive.org/web/20240204145251/https://support.google.com/webmasters/answer/35291",
+        url: "https://support.google.com/webmasters/answer/35291",
       },
       {
         label: "Webmaster Tools (Google)",
-        url: "https://web.archive.org/web/20240204145251/http://www.google.com/webmasters/tools/",
+        url: "http://www.google.com/webmasters/tools/",
       },
       {
         label: "Bing - Webmaster Tools",
-        url: "https://web.archive.org/web/20240204145251/http://www.bing.com/toolbox/webmaster",
+        url: "http://www.bing.com/toolbox/webmaster",
       },
     ],
     description:
@@ -155,19 +155,19 @@ export const skills = [
     links: [
       {
         label: "10 SEO Analysis Tools You Should Be Using",
-        url: "https://web.archive.org/web/20240204145251/http://www.webgnomes.org/blog/10-seo-analysis-tools/",
+        url: "http://www.webgnomes.org/blog/10-seo-analysis-tools/",
       },
       {
         label: "Configuring SEO data in Analytics (Google)",
-        url: "https://web.archive.org/web/20240204145251/https://support.google.com/analytics/answer/1308621?hl=en",
+        url: "https://support.google.com/analytics/answer/1308621?hl=en",
       },
       {
         label: "Using the SEO Reports (Google)",
-        url: "https://web.archive.org/web/20240204145251/http://www.bing.com/toolbox/webmaster",
+        url: "http://www.bing.com/toolbox/webmaster",
       },
       {
         label: "Bing - SEO Analyzer",
-        url: "https://web.archive.org/web/20240204145251/http://www.bing.com/toolbox/seo-analyzer",
+        url: "http://www.bing.com/toolbox/seo-analyzer",
       },
     ],
     description:
@@ -185,19 +185,19 @@ export const skills = [
     links: [
       {
         label: "JavaScript Tutorial",
-        url: "https://web.archive.org/web/20240204145251/http://www.htmldog.com/guides/javascript/",
+        url: "http://www.htmldog.com/guides/javascript/",
       },
       {
         label: "Codecademy JavaScript",
-        url: "https://web.archive.org/web/20240204145251/http://www.codecademy.com/tracks/javascript",
+        url: "http://www.codecademy.com/tracks/javascript",
       },
       {
         label: "List of Videos for Beginner JavaScript",
-        url: "https://web.archive.org/web/20240204145251/http://thenewboston.org/list.php?cat=10",
+        url: "http://thenewboston.org/list.php?cat=10",
       },
       {
         label: "Douglas Crockford on Javascript",
-        url: "https://web.archive.org/web/20240204145251/http://javascript.crockford.com/",
+        url: "http://javascript.crockford.com/",
       },
     ],
     description:
@@ -234,7 +234,7 @@ export const skills = [
     links: [
       {
         label: "Server-side scripting Wiki",
-        url: "https://web.archive.org/web/20240204145251/http://en.wikipedia.org/wiki/Server-side_scripting",
+        url: "http://en.wikipedia.org/wiki/Server-side_scripting",
       },
     ],
     description:
@@ -248,11 +248,11 @@ export const skills = [
     links: [
       {
         label: "Comparison of web application frameworks",
-        url: "https://web.archive.org/web/20240204145251/http://en.wikipedia.org/wiki/Comparison_of_web_application_frameworks",
+        url: "http://en.wikipedia.org/wiki/Comparison_of_web_application_frameworks",
       },
       {
         label: "Web development - server side coding",
-        url: "https://web.archive.org/web/20240204145251/http://en.wikipedia.org/wiki/Web_development#Server_side_coding",
+        url: "http://en.wikipedia.org/wiki/Web_development#Server_side_coding",
       },
     ],
     description:
@@ -269,15 +269,15 @@ export const skills = [
     links: [
       {
         label: "w3schools.com SQL Tutorial",
-        url: "https://web.archive.org/web/20240204145251/http://www.w3schools.com/sql/",
+        url: "http://www.w3schools.com/sql/",
       },
       {
         label: "SQLZOO Interactive SQL Tutorial",
-        url: "https://web.archive.org/web/20240204145251/http://sqlzoo.net/wiki/",
+        url: "http://sqlzoo.net/wiki/",
       },
       {
         label: "Database Normalization Wiki",
-        url: "https://web.archive.org/web/20240204145251/https://en.wikipedia.org/wiki/Database_normalization",
+        url: "https://en.wikipedia.org/wiki/Database_normalization",
       },
     ],
     maxPoints: 2,
@@ -296,27 +296,27 @@ export const skills = [
     links: [
       {
         label: "Stored Procedure - Wiki",
-        url: "https://web.archive.org/web/20240204145251/http://en.wikipedia.org/wiki/Stored_procedure",
+        url: "http://en.wikipedia.org/wiki/Stored_procedure",
       },
       {
         label: "User-defined function Wiki",
-        url: "https://web.archive.org/web/20240204145251/http://en.wikipedia.org/wiki/User_defined_function",
+        url: "http://en.wikipedia.org/wiki/User_defined_function",
       },
       {
         label: "Database Tuning Wiki",
-        url: "https://web.archive.org/web/20240204145251/http://en.wikipedia.org/wiki/Database_tuning",
+        url: "http://en.wikipedia.org/wiki/Database_tuning",
       },
       {
         label: "Performance Monitoring and Tuning How-to Topics (SQL Server)",
-        url: "https://web.archive.org/web/20240204145251/http://technet.microsoft.com/en-us/library/ms187830(v=sql.105).aspx",
+        url: "http://technet.microsoft.com/en-us/library/ms187830(v=sql.105).aspx",
       },
       {
         label: "Sql Server Performance Tuning Tips",
-        url: "https://web.archive.org/web/20240204145251/http://www.mssqltips.com/sql-server-tip-category/9/performance-tuning/",
+        url: "http://www.mssqltips.com/sql-server-tip-category/9/performance-tuning/",
       },
       {
         label: "Oracle database Performance Tuning FAQ",
-        url: "https://web.archive.org/web/20240204145251/http://www.orafaq.com/wiki/Oracle_database_Performance_Tuning_FAQ",
+        url: "http://www.orafaq.com/wiki/Oracle_database_Performance_Tuning_FAQ",
       },
     ],
     maxPoints: 2,
@@ -347,19 +347,19 @@ export const skills = [
     links: [
       {
         label: "ASP.NET authentication and authorization - CodeProject",
-        url: "https://web.archive.org/web/20240204145251/http://www.codeproject.com/Articles/98950/ASP-NET-authentication-and-authorization",
+        url: "http://www.codeproject.com/Articles/98950/ASP-NET-authentication-and-authorization",
       },
       {
         label: "OpenID Wiki (authentication)",
-        url: "https://web.archive.org/web/20240204145251/http://en.wikipedia.org/wiki/OpenID",
+        url: "http://en.wikipedia.org/wiki/OpenID",
       },
       {
         label: "OAuth Community",
-        url: "https://web.archive.org/web/20240204145251/http://oauth.net/",
+        url: "http://oauth.net/",
       },
       {
         label: "ASP.NET Authorization",
-        url: "https://web.archive.org/web/20240204145251/http://msdn.microsoft.com/en-us/library/wce3kxhd(v=vs.100).aspx",
+        url: "http://msdn.microsoft.com/en-us/library/wce3kxhd(v=vs.100).aspx",
       },
     ],
     description:
@@ -374,23 +374,23 @@ export const skills = [
     links: [
       {
         label: "AJAX (programming) Wiki",
-        url: "https://web.archive.org/web/20240204145251/http://en.wikipedia.org/wiki/Ajax_(programming)",
+        url: "http://en.wikipedia.org/wiki/Ajax_(programming)",
       },
       {
         label: "List of Videos for AJAX",
-        url: "https://web.archive.org/web/20240204145251/http://thenewboston.org/list.php?cat=61",
+        url: "http://thenewboston.org/list.php?cat=61",
       },
       {
         label: "Ajax: The Official Microsoft ASP.NET Site",
-        url: "https://web.archive.org/web/20240204145251/http://www.asp.net/ajax",
+        url: "http://www.asp.net/ajax",
       },
       {
         label: "Web Service Wiki",
-        url: "https://web.archive.org/web/20240204145251/http://en.wikipedia.org/wiki/Web_service",
+        url: "http://en.wikipedia.org/wiki/Web_service",
       },
       {
         label: "Representational state transfer (REST) Wiki",
-        url: "https://web.archive.org/web/20240204145251/http://en.wikipedia.org/wiki/Representational_state_transfer",
+        url: "http://en.wikipedia.org/wiki/Representational_state_transfer",
       },
     ],
     description:
@@ -413,7 +413,7 @@ export const skills = [
     links: [
       {
         label: "The anatomy of an experience map",
-        url: "https://web.archive.org/web/20240204145251/http://www.adaptivepath.com/ideas/the-anatomy-of-an-experience-map",
+        url: "http://www.adaptivepath.com/ideas/the-anatomy-of-an-experience-map",
       },
     ],
     description:
@@ -436,19 +436,19 @@ export const skills = [
     links: [
       {
         label: "Graphic Design Wiki",
-        url: "https://web.archive.org/web/20240204145251/http://en.wikipedia.org/wiki/Graphic_design",
+        url: "http://en.wikipedia.org/wiki/Graphic_design",
       },
       {
         label: "Behance",
-        url: "https://web.archive.org/web/20240204145251/http://www.behance.net/",
+        url: "http://www.behance.net/",
       },
       {
         label: "User experience design Wiki",
-        url: "https://web.archive.org/web/20240204145251/http://en.wikipedia.org/wiki/User_experience_design",
+        url: "http://en.wikipedia.org/wiki/User_experience_design",
       },
       {
         label: "Awwwards",
-        url: "https://web.archive.org/web/20240204145251/http://www.awwwards.com/",
+        url: "http://www.awwwards.com/",
       },
     ],
     description:
@@ -463,7 +463,7 @@ export const skills = [
     links: [
       {
         label: "100 Top Tools for Graphic Designers | Graphic Design Classes",
-        url: "https://web.archive.org/web/20240204145251/http://graphicdesignclasses.net/design-tools/",
+        url: "http://graphicdesignclasses.net/design-tools/",
       },
     ],
     description:
@@ -480,11 +480,11 @@ export const skills = [
     links: [
       {
         label: "Design Better And Faster With Rapid Prototyping",
-        url: "https://web.archive.org/web/20240204145251/http://www.smashingmagazine.com/2010/06/16/design-better-faster-with-rapid-prototyping/",
+        url: "http://www.smashingmagazine.com/2010/06/16/design-better-faster-with-rapid-prototyping/",
       },
       {
         label: "16 Design Tools for Prototyping and Wireframing",
-        url: "https://web.archive.org/web/20240204145251/http://www.sitepoint.com/tools-prototyping-wireframing/",
+        url: "http://www.sitepoint.com/tools-prototyping-wireframing/",
       },
     ],
     description:
@@ -513,11 +513,11 @@ export const skills = [
     links: [
       {
         label: "My big list of 24 Web Site Usability Testing Tools",
-        url: "https://web.archive.org/web/20240204145251/http://www.usefulusability.com/24-usability-testing-tools/",
+        url: "http://www.usefulusability.com/24-usability-testing-tools/",
       },
       {
         label: "Usability Testing Wiki",
-        url: "https://web.archive.org/web/20240204145251/http://en.wikipedia.org/wiki/Usability_testing",
+        url: "http://en.wikipedia.org/wiki/Usability_testing",
       },
     ],
     description:
@@ -534,11 +534,11 @@ export const skills = [
     links: [
       {
         label: "Comparison of web server software Wiki",
-        url: "https://web.archive.org/web/20240204145251/http://en.wikipedia.org/wiki/Comparison_of_web_server_software",
+        url: "http://en.wikipedia.org/wiki/Comparison_of_web_server_software",
       },
       {
         label: "Apache mod_rewrite - Apache HTTP Server",
-        url: "https://web.archive.org/web/20240204145251/http://httpd.apache.org/docs/2.4/rewrite/",
+        url: "http://httpd.apache.org/docs/2.4/rewrite/",
       },
     ],
     maxPoints: 2,
@@ -558,15 +558,15 @@ export const skills = [
     links: [
       {
         label: "SSL Certificate Installation",
-        url: "https://web.archive.org/web/20240204145251/http://www.sslshopper.com/ssl-certificate-installation.html",
+        url: "http://www.sslshopper.com/ssl-certificate-installation.html",
       },
       {
         label: "Minimize payload size - Google Developers",
-        url: "https://web.archive.org/web/20240204145251/https://developers.google.com/speed/docs/best-practices/payload",
+        url: "https://developers.google.com/speed/docs/best-practices/payload",
       },
       {
         label: "Parallelize downloads across hostnames - Google Developers",
-        url: "https://web.archive.org/web/20240204145251/https://developers.google.com/speed/docs/best-practices/rtt#ParallelizeDownloads",
+        url: "https://developers.google.com/speed/docs/best-practices/rtt#ParallelizeDownloads",
       },
     ],
     maxPoints: 2,
@@ -589,7 +589,7 @@ export const skills = [
     links: [
       {
         label: "Web Development Wiki",
-        url: "https://web.archive.org/web/20240204145251/http://en.wikipedia.org/wiki/Web_development",
+        url: "http://en.wikipedia.org/wiki/Web_development",
       },
     ],
     description: "This refers to designing, creating, and maintaining a website.",
